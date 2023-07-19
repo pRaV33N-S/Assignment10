@@ -42,6 +42,15 @@ namespace Assignment10
             }
             sr.Close();
         }
+        public static void readFiles(string openFile)
+        {
+            string readFile = openFile;
+            string[] lines= File.ReadAllLines(readFile);
+            foreach(string line in lines)
+            {
+                Console.WriteLine(line);
+            }
+        }
         public static void appendFiles()
         {
             Console.WriteLine("Enter the Path for the file to Open");
@@ -49,6 +58,7 @@ namespace Assignment10
             Console.WriteLine("Enter the Content to Append");
             string appendFile = Console.ReadLine();
             File.AppendAllText(openFile, appendFile);
+            readFiles(openFile);
         }
         public static void deleteFiles()
         {
@@ -110,8 +120,7 @@ namespace Assignment10
             finally
             {
                 Console.WriteLine("End of the Program");
-            }
-                
+            }   
         }
     }
 }
